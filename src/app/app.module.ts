@@ -8,15 +8,21 @@ import {MatCardModule} from "@angular/material/card";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
+import {HttpClientModule} from "@angular/common/http";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AddEditMovieComponent } from './add-edit-movie/add-edit-movie.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthComponent
+    AuthComponent,
+    DashboardComponent,
+    AddEditMovieComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatCardModule,
     MatInputModule,
     ReactiveFormsModule,
