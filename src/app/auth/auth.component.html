@@ -1,59 +1,62 @@
-<mat-card class="card-container">
-  <mat-card-content>
-    <div class="input-field">
-      <mat-form-field appearance="fill" class="input-field-form">
-        <mat-label>Enter your email</mat-label>
-        <input matInput placeholder="email@example.com" [formControl]="email" required>
-        <mat-error *ngIf="email.invalid">{{getErrorMessage(email)}}</mat-error>
-      </mat-form-field>
-    </div>
-    <div class="input-field">
-      <mat-form-field appearance="fill" class="input-field-form">
-        <mat-label>Enter your password</mat-label>
-        <input matInput type="password" placeholder="Password" [formControl]="password" required >
-        <mat-error *ngIf="password.invalid">{{getErrorMessage(password)}}</mat-error>
-      </mat-form-field>
-    </div>
-    <div class="buttons-container">
-    <button mat-raised-button color="primary">Log in</button>
-    <button mat-button color="primary">Create an account?</button>
-    </div>
-  </mat-card-content>
-</mat-card>
-<mat-card class="card-container">
-  <mat-card-content>
-    <div class="input-field">
-      <mat-form-field appearance="fill" class="input-field-form">
-        <mat-label>Username</mat-label>
-        <input matInput placeholder="Username" [formControl]="username" required >
-        <mat-error *ngIf="username.invalid">{{getErrorMessage(username)}}</mat-error>
-      </mat-form-field>
-    </div>
-    <div class="input-field">
-      <mat-form-field appearance="fill" class="input-field-form">
-        <mat-label>Enter your email</mat-label>
-        <input matInput placeholder="email@example.com" [formControl]="email" required>
-        <mat-error *ngIf="email.invalid">{{getErrorMessage(email)}}</mat-error>
-      </mat-form-field>
-    </div>
-    <div class="input-field">
-      <mat-form-field appearance="fill" class="input-field-form">
-        <mat-label>Enter your password</mat-label>
-        <input matInput type="password" placeholder="Password" [formControl]="password" required >
-        <mat-error *ngIf="password.invalid">{{getErrorMessage(password)}}</mat-error>
-      </mat-form-field>
-    </div>
-    <div class="input-field">
-      <mat-form-field appearance="fill" class="input-field-form">
-        <mat-label>Re type your password</mat-label>
-        <input matInput type="password" placeholder="Re type Password" [formControl]="reTypePassword" required >
-        <mat-error *ngIf="reTypePassword.invalid">{{getErrorMessage(reTypePassword)}}</mat-error>
-      </mat-form-field>
-    </div>
-    <div class="buttons-container">
-      <button mat-raised-button color="primary">Register</button>
-      <button mat-button color="primary">Back to log in</button>
-    </div>
-  </mat-card-content>
-</mat-card>
+<div [ngSwitch]="viewType" class="div-container">
+  <mat-card class="card-container" *ngSwitchCase="'login'">
+    <mat-card-content>
+      <div class="input-field">
+        <mat-form-field appearance="fill" class="input-field-form">
+          <mat-label>Enter your email</mat-label>
+          <input matInput placeholder="email@example.com" [formControl]="email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage(email)}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="input-field">
+        <mat-form-field appearance="fill" class="input-field-form">
+          <mat-label>Enter your password</mat-label>
+          <input matInput type="password" placeholder="Password" [formControl]="password" required >
+          <mat-error *ngIf="password.invalid">{{getErrorMessage(password)}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="buttons-container">
+        <button mat-raised-button color="primary" (click)="onLogIn()">Log in</button>
+        <button mat-button color="primary" (click)="onViewTypeChange('register')">Create an account?</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="card-container" *ngSwitchCase="'register'">
+    <mat-card-content>
+      <div class="input-field">
+        <mat-form-field appearance="fill" class="input-field-form">
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="Username" [formControl]="username" required >
+          <mat-error *ngIf="username.invalid">{{getErrorMessage(username)}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="input-field">
+        <mat-form-field appearance="fill" class="input-field-form">
+          <mat-label>Enter your email</mat-label>
+          <input matInput placeholder="email@example.com" [formControl]="email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage(email)}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="input-field">
+        <mat-form-field appearance="fill" class="input-field-form">
+          <mat-label>Enter your password</mat-label>
+          <input matInput type="password" placeholder="Password" [formControl]="password" required >
+          <mat-error *ngIf="password.invalid">{{getErrorMessage(password)}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="input-field">
+        <mat-form-field appearance="fill" class="input-field-form">
+          <mat-label>Re type your password</mat-label>
+          <input matInput type="password" placeholder="Re type Password" [formControl]="reTypePassword" required >
+          <mat-error *ngIf="reTypePassword.invalid">{{getErrorMessage(reTypePassword)}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="buttons-container">
+        <button mat-raised-button color="primary" (click)="onRegister()">Register</button>
+        <button mat-button color="primary" (click)="onViewTypeChange('login')">Back to log in</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
 
+
+</div>
