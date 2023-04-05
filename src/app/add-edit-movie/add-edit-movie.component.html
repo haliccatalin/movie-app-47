@@ -3,7 +3,7 @@
     <div class="input-field">
       <mat-form-field appearance="fill" class="input-field-form">
         <mat-label>Title</mat-label>
-        <input matInput placeholder="Title" [formControl]="title" required >
+        <input matInput placeholder="Title" [formControl]="title" required>
         <mat-error *ngIf="title.invalid">{{getErrorMessage(title)}}</mat-error>
       </mat-form-field>
     </div>
@@ -17,19 +17,19 @@
     <div class="input-field">
       <mat-form-field appearance="fill" class="input-field-form">
         <mat-label>Description</mat-label>
-        <input matInput  placeholder="Description..." [formControl]="description" required >
+        <input matInput placeholder="Description..." [formControl]="description" required>
         <mat-error *ngIf="description.invalid">{{getErrorMessage(description)}}</mat-error>
       </mat-form-field>
     </div>
     <div class="input-field">
       <mat-form-field appearance="fill" class="input-field-form">
         <mat-label>Year</mat-label>
-        <input matInput placeholder="Year" [formControl]="year" required >
+        <input matInput placeholder="Year" [formControl]="year" required>
         <mat-error *ngIf="year.invalid">{{getErrorMessage(year)}}</mat-error>
       </mat-form-field>
     </div>
     <div class="buttons-container">
-      <button mat-raised-button color="primary" >Save</button>
+      <button mat-raised-button color="primary" (click)="onSave()">Save</button>
     </div>
   </mat-card-content>
 </mat-card>
