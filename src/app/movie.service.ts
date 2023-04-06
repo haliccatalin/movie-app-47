@@ -39,6 +39,7 @@ export class MovieService {
     return this.httpClient.patch(`${environment.apiUrl}/api/movie/${movie.id}`, body)
       .toPromise()
       .then((response: any) => {
+        this.getMovies();
         return response;
       })
   }
@@ -49,6 +50,7 @@ export class MovieService {
     return this.httpClient.delete(`${environment.apiUrl}/api/movie/${movie.id}`)
       .toPromise()
       .then((response: any) => {
+        this.getMovies();
         return response;
       })
   }

@@ -11,27 +11,23 @@ export class AuthService {
 
   }
 
-  public logIn(email: string,
-               password: string
-  ) {
+  public logIn(email: string, password: string) {
     let body: any = {
       "email": email,
       "password": password
     }
-    this.httpClient.post(`${environment.apiUrl}/api/auth/login`, body);
+    return this.httpClient.post(`${environment.apiUrl}/api/auth/login`, body)
+      .toPromise();
   }
 
-  public register(username: string,
-                  email: string,
-                  password: string,
-                  reTypePassword: string
-  ) {
+  public register(username: string, email: string, password: string, reTypePassword: string) {
     let body: any = {
       "email": email,
       "username": username,
       "password": password,
       "reTypePassword": reTypePassword
     }
-    this.httpClient.post(`${environment.apiUrl}/api/auth/register`, body);
+    return this.httpClient.post(`${environment.apiUrl}/api/auth/register`, body)
+      .toPromise();
   }
 }
